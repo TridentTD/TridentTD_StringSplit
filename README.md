@@ -22,8 +22,8 @@ void setup() {
   Serial.println("-----------------------------");
 
   int     MAX = 10;           // ขนาดสูงสุดที่จะตัดแบ่งคำ
-  String  str_split[MAX];     // ตัวแปร String ที่จะมาเก็บคำที่ตัดแบ่งแล้ว
-  String  delimiters = " ,.("; // หากพบ space หรือ , หรือ . หรือ ( จะใช้เป็นตัวตัดแบ่งคำ
+  String  str_split[MAX];     // ตัวแปร String Array ที่ใช็เก็บ String ที่ตัดแบ่งแล้ว
+  String  delimiters = " ,.("; // หากพบ space หรือ , หรือ . หรือ ( จะใช้เป็นตัวในการตัดแบ่งคำ
 
   // myString ทำการตัดแบ่งคำ แล้วเก็บใน str_split[]
   int count = myString.split( str_split, MAX, delimiters ); 
