@@ -63,7 +63,7 @@ C:\Users\[user_name]\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\[
 ## วิธีการติดตั้งสำหรับ ESP32 Platform  
 ในโฟลเดอร์ ESP32  
 ให้สำเนา WString.h และ WString.cpp นี้ไปแทนที่ ของเดิมที่อยู่ในโฟลเดอร์  
-[...]\hardware\espressif\esp32\cores\esp32  
+[..YOUR ESP32 BASE..]\hardware\espressif\esp32\cores\esp32  
 .  
 .  
 .  
