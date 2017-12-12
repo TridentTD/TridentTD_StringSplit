@@ -50,6 +50,8 @@ void loop() {
 // Hana
 ```
 
+![Image of code compare](code_compare.png)  
+
 ## วิธีการติดตั้งสำหรับ Arduino Platform  
 ในโฟลเดอร์ Arduino  
 ให้สำเนา WString.h และ WString.cpp นี้ไปแทนที่ ของเดิมที่อยู่ในโฟลเดอร์   
