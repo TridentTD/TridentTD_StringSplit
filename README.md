@@ -60,12 +60,12 @@ C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino
 ## วิธีการติดตั้งสำหรับ ESP8266 Platform  
 ในโฟลเดอร์ ESP8266  
 ให้สำเนา WString.h และ WString.cpp นี้ไปแทนที่ ของเดิมที่อยู่ในโฟลเดอร์   
-C:\Users\[user_name]\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\[esp_version]\cores\esp8266
+C:\Users\\[user_name]\\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\\[esp_version]\\cores\esp8266
 
 ## วิธีการติดตั้งสำหรับ ESP32 Platform  
 ในโฟลเดอร์ ESP32  
 ให้สำเนา WString.h และ WString.cpp นี้ไปแทนที่ ของเดิมที่อยู่ในโฟลเดอร์  
-[esp32_base_folder]\hardware\espressif\esp32\cores\esp32  
+[esp32_base_folder]\\hardware\espressif\esp32\cores\esp32  
 .  
 .  
 .  
