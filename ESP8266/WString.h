@@ -238,10 +238,12 @@ class String {
         void trim(void);
 
         // TridentTD
-        int split(String *token, int token_size, String delimiter);
+        //int split(String *token, int token_size, String delimiter);  //v.1
+        int split(String delimiter, String** str_array);
+
 
         // parsing/conversion
-        long toInt(void) const;
+        long toInt(void) const;      // มีการแก้เปลี่ยนแบบใหม่ โดย TridentTD
         float toFloat(void) const;
         double toDouble(void) const; //TridentTD
 

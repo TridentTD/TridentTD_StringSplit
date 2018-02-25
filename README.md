@@ -1,7 +1,7 @@
 # String_split
 Split Arduino String to String Array  
 ------------------------------------  
-  
+
 ฟังกชั่น **split** เป็น ฟังกชั่นที่เพิ่มพิเศษให้ Arduino String  
 มีความสามารถในการตัดแบ่งคำด้วย delimiters ที่ระบุ  
 ออกเป็น String Array ต่างๆให้อัตโนมัติ  
@@ -15,20 +15,20 @@ Split Arduino String to String Array
 void setup() {
   Serial.begin(115200); Serial.println();
   
-  String myString = "Helo My name, is TridentTD. Hey(Hana";
+  String myString = "Helo. {My name} is [TridentTD].";
   
   Serial.println("-----------------------------");
   Serial.println(myString);
   Serial.println("-----------------------------");
 
-  int     MAX = 10;           // ขนาดสูงสุดที่จะตัดแบ่งคำ
-  String  str_split[MAX];     // ตัวแปร String Array ที่ใช็เก็บ String ที่ตัดแบ่งแล้ว
-  String  delimiters = " ,.("; // หากพบ space หรือ , หรือ . หรือ ( จะใช้เป็นตัวในการตัดแบ่งคำ
+  String* str;                   // ตัวแปร String Array ที่ใช็เก็บ String ที่ตัดแบ่งแล้ว
+  String  delimiters = " .{}[]"; // หากพบ space หรือ . หรือ { หรือ } หรือ [ หรือ ] 
+                                 // จะใช้เป็นตัวในการตัดแบ่งคำ
 
-  // myString ทำการตัดแบ่งคำ แล้วเก็บใน str_split[]
-  int count = myString.split( str_split, MAX, delimiters ); 
+  // myString ทำการตัดแบ่งคำ ด้วย delimiters แล้วเก็บใน str,  จน.ที่ตัดได้คือ count
+  int count = myString.split( delimiters, &str ); 
   for(int i =0; i < count ; i++){
-    Serial.println(str_split[i]); // แสดงค่าที่ตัดแบ่งคำ
+    Serial.println(str[i]);      // แสดงคำที่ตัดแบ่งแล้วทั้งหมด
   }
 }
 
@@ -39,18 +39,19 @@ void loop() {
 // [OUTPUT]
 //
 // -----------------------------
-// Helo My name, is TridentTD. Hey(Hana
+// Helo. {My name} is [TridentTD].
 // -----------------------------
 // Helo
 // My
 // name
 // is
 // TridentTD
-// Hey
-// Hana
+//
 ```
 
 ![Image of code compare](code_compare.png)  
+
+![Image of result](result.png)
 
 ## วิธีการติดตั้งสำหรับ Arduino Platform  
 ในโฟลเดอร์ Arduino  

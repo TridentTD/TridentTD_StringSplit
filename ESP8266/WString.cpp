@@ -734,18 +734,45 @@ void String::trim(void) {
 }
 
 //TridentTD
-int String::split(String *token, int token_size, String delimiter){
-    if(!buffer || len == 0) return 0;
-    if(token == NULL || token_size == 0) return 0;
+// split v.1
+// int String::split(String *token, int token_size, String delimiter){
+//     if(!buffer || len == 0) return 0;
+//     if(token == NULL || token_size == 0) return 0;
 
-    int token_count = 0 ;
-    char *pChar = strtok( buffer, (char*)delimiter.c_str());
-    while( pChar != NULL && token_count < token_size ) {
-        token[token_count] = String(pChar);
-        pChar = strtok( NULL, (char*)delimiter.c_str());
-        ++token_count;
-    }
-    return token_count;
+//     int token_count = 0 ;
+//     char *pChar = strtok( buffer, (char*)delimiter.c_str());
+//     while( pChar != NULL && token_count < token_size ) {
+//         token[token_count] = String(pChar);
+//         pChar = strtok( NULL, (char*)delimiter.c_str());
+//         ++token_count;
+//     }
+//     return token_count;
+// }
+//Trident , split v.2
+int String::split(String delimiter, String** str_array) {
+  if(!buffer || len == 0) return 0;
+  String input = String(buffer); 
+  int token_size = 0;
+
+  char *pChar = strtok( (char*)input.c_str(), (char*)delimiter.c_str());
+  while ( pChar != NULL ) {
+    pChar = strtok( NULL, (char*)delimiter.c_str());
+    ++token_size;
+  }
+  
+  String *token = new String[token_size];
+  input = String(buffer); 
+  token_size = 0;
+
+  pChar = strtok( (char*) input.c_str(), (char*)delimiter.c_str());
+  while ( pChar != NULL ) {
+    token[token_size] = String(pChar);
+    pChar = strtok( NULL, (char*)delimiter.c_str());
+    ++token_size;
+  }
+  
+  *str_array = token;
+  return token_size;
 }
 
 // /*********************************************/
