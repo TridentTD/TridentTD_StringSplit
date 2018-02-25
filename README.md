@@ -1,10 +1,10 @@
-# String_split
+# TridentTD_StringSplit
 Split Arduino String to String Array  
 ------------------------------------  
 
-ฟังกชั่น **split** เป็น ฟังกชั่นที่เพิ่มพิเศษให้ Arduino String  
-มีความสามารถในการตัดแบ่งคำด้วย delimiters ที่ระบุ  
-ออกเป็น String Array ต่างๆให้อัตโนมัติ  
+ฟังกชั่น **td_split** เป็น ฟังกชั่นที่เพิ่มพิเศษให้ Arduino String  
+เพิ่มความสามารถในการตัดแบ่งคำด้วย delimiters (ตัวตัดคำ) ที่ระบุ  
+และทำการจัดเก็บลงสู่ String Array ให้อัตโนมัติ  
 เพื่อสะดวกในการนำไปใช้งานต่อไป  
 
 ตัวอย่าง
