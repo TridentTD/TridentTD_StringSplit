@@ -15,7 +15,7 @@ Split Arduino String to String Array
 void setup() {
   Serial.begin(115200); Serial.println();
   
-  String myString = "Helo. {My name} is [TridentTD].";
+  String myString = "Hello. {My name} is [TridentTD].";
   
   Serial.println("-----------------------------");
   Serial.println(myString);
@@ -39,9 +39,9 @@ void loop() {
 // [OUTPUT]
 //
 // -----------------------------
-// Helo. {My name} is [TridentTD].
+// Hello. {My name} is [TridentTD].
 // -----------------------------
-// Helo
+// Hello
 // My
 // name
 // is
