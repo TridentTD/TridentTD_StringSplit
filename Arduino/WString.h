@@ -189,7 +189,7 @@ public:
 
 	// TridentTD
 	// int split(String *token, int token_size, String delimiter); // v.1
-	int split(String delimiter, String** str_array);  //v.2
+	int td_split(String delimiter, String** str_array);  //v.2
 
 	// parsing/conversion
 	long toInt(void) const;

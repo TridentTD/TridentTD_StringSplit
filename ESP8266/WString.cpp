@@ -749,7 +749,7 @@ void String::trim(void) {
 //     return token_count;
 // }
 //Trident , split v.2
-int String::split(String delimiter, String** str_array) {
+int String::td_split(String delimiter, String** str_array) {
   if(!buffer || len == 0) return 0;
   String input = String(buffer); 
   int token_size = 0;
