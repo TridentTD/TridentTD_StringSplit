@@ -28,6 +28,7 @@
 #include <ctype.h>
 #include <pgmspace.h>
 
+
 // An inherited class for holding the result of a concatenation.  These
 // result objects are assumed to be writable by subsequent concatenations.
 class StringSumHelper;
@@ -194,6 +195,7 @@ class String {
         unsigned char operator <=(const String &rhs) const;
         unsigned char operator >=(const String &rhs) const;
         unsigned char equalsIgnoreCase(const String &s) const;
+        unsigned char equalsConstantTime(const String &s) const;
         unsigned char startsWith(const String &prefix) const;
         unsigned char startsWith(const String &prefix, unsigned int offset) const;
         unsigned char endsWith(const String &suffix) const;
@@ -237,13 +239,11 @@ class String {
         void toUpperCase(void);
         void trim(void);
 
-        // TridentTD
-        //int split(String *token, int token_size, String delimiter);  //v.1
-        int td_split(String delimiter, String** str_array);
-
+        //TridentTD
+        int td_split(String delimiter, String** str_array, uint8_t max_array=255);
 
         // parsing/conversion
-        long toInt(void) const;      // มีการแก้เปลี่ยนแบบใหม่ โดย TridentTD
+        long toInt(void) const;      //TridentTD version support True long
         float toFloat(void) const;
         double toDouble(void) const; //TridentTD
 

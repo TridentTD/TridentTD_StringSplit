@@ -477,6 +477,33 @@ unsigned char String::equalsIgnoreCase(const String &s2) const {
     return 1;
 }
 
+unsigned char String::equalsConstantTime(const String &s2) const {
+    // To avoid possible time-based attacks present function
+    // compares given strings in a constant time.
+    if(len != s2.len)
+        return 0;
+    //at this point lengths are the same
+    if(len == 0)
+        return 1;
+    //at this point lenghts are the same and non-zero
+    const char *p1 = buffer;
+    const char *p2 = s2.buffer;
+    unsigned int equalchars = 0;
+    unsigned int diffchars = 0;
+    while(*p1) {
+        if(*p1 == *p2)
+            ++equalchars;
+        else
+            ++diffchars;
+        ++p1;
+        ++p2;
+    }
+    //the following should force a constant time eval of the condition without a compiler "logical shortcut"
+    unsigned char equalcond = (equalchars == len);
+    unsigned char diffcond = (diffchars == 0);
+    return (equalcond & diffcond); //bitwise AND
+}
+
 unsigned char String::startsWith(const String &s2) const {
     if(len < s2.len)
         return 0;
@@ -733,23 +760,10 @@ void String::trim(void) {
     buffer[len] = 0;
 }
 
-//TridentTD
-// split v.1
-// int String::split(String *token, int token_size, String delimiter){
-//     if(!buffer || len == 0) return 0;
-//     if(token == NULL || token_size == 0) return 0;
-
-//     int token_count = 0 ;
-//     char *pChar = strtok( buffer, (char*)delimiter.c_str());
-//     while( pChar != NULL && token_count < token_size ) {
-//         token[token_count] = String(pChar);
-//         pChar = strtok( NULL, (char*)delimiter.c_str());
-//         ++token_count;
-//     }
-//     return token_count;
-// }
-//Trident , split v.2
-int String::td_split(String delimiter, String** str_array) {
+// /************************************************************/
+// /*  TridentTD's split : split by delimiters to String Array */
+// /************************************************************/
+int String::td_split(String delimiter, String** str_array, uint8_t max_array) {
   if(!buffer || len == 0) return 0;
   String input = String(buffer); 
   int token_size = 0;
@@ -779,14 +793,17 @@ int String::td_split(String delimiter, String** str_array) {
 // /*  Parsing / Conversion                     */
 // /*********************************************/
 
+// long String::toInt(void) const {
+//     if(buffer)
+//         return atol(buffer);
+//     return 0;
+// }
+
+//TridentTD version
 long String::toInt(void) const {
-    //TridentTD
     if(buffer)
         return (long) strtoul( buffer, NULL, 0);
     return 0;
-    // if(buffer)
-    //     return atol(buffer);
-    // return 0;
 }
 
 float String::toFloat(void) const {
