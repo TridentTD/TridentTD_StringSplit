@@ -1,4 +1,4 @@
-# TridentTD_StringSplit
+# TridentTD's String Split /  SetMember Checker / True toInt functions 
 Split Arduino String to String Array  
 ------------------------------------  
 
@@ -53,6 +53,30 @@ void loop() {
 
 ![Image of result](result.png)
 
+เช็คว่า String เป็น สมาชิกของ String ที่อยู่ในรูปแบบของ Set ไหม?  
+------------------------------------  
+บางครั้ง String ของเรา อาจจะอยู่แบบของ Set  ( set-style String )  
+โดยมี comma คั่น ตัวอย่างเช่น  
+
+```c
+String mySet = " 2323, 34,534,23,    32 AAF, SFD32 ,3435 ,43"; 
+```
+
+หากเรามี 
+```c
+String test1 = "34"; 
+```
+และมีความต้องการจะทดสอบว่าเป็นสมาชิกใน set-style String ข้างต้น  
+สามารถตรวจสอบได้โดยใช้คำสั่ง
+
+```c
+bool check =  test1.isSetMember( mySet ); // ทดสอบว่า test1 เป็นสมาชิกของ mySet ไหม
+```
+
+ก็จะทำให้เราสามารถตรวจสอบค่าได้อย่างรวดเร็ว  
+ 
+![Image of_memberchecker](setmember.png)  
+  
 ## วิธีการติดตั้งสำหรับ Arduino Platform  
 ในโฟลเดอร์ Arduino  
 ให้สำเนา WString.h และ WString.cpp นี้ไปแทนที่ ของเดิมที่อยู่ในโฟลเดอร์   
