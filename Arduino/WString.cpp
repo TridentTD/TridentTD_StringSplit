@@ -770,14 +770,32 @@ int String::td_split(String delimiter, String** str_array) {
   return token_size;
 }
 
+bool String::isSetMember(String member, String delimiter){
+    String *str;
+    int count = td_split(delimiter, &str);
+    bool found = false;
+    for(int i =0; i < count ; ++i){
+        str[i].trim();
+        if( member == str[i]) { found = true; break;}
+    }
+    return found;
+}
+
 /*********************************************/
 /*  Parsing / Conversion                     */
 /*********************************************/
 
-long String::toInt(void) const
-{
-	if (buffer) return atol(buffer);
-	return 0;
+// long String::toInt(void) const
+// {
+// 	if (buffer) return atol(buffer);
+// 	return 0;
+// }
+
+//TridentTD version
+long String::toInt(void) const {
+    if(buffer)
+        return (long) strtoul( buffer, NULL, 0); //(uint32_t) strtoul( buffer, NULL, 0); //
+    return 0;
 }
 
 float String::toFloat(void) const

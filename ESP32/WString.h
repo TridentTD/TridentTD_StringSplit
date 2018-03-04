@@ -257,12 +257,13 @@ public:
     void trim(void);
 
     // TridentTD
-    // int split(String *token, int token_size, String delimiter); // v.1
     int td_split(String delimiter, String** str_array);  //v.2
+    bool isSetMember(String member, String delimiter=",");
 
     // parsing/conversion
     long toInt(void) const;
     float toFloat(void) const;
+    double toDouble(void) const; //TridentTD
 
 protected:
     char *buffer;	        // the actual char array

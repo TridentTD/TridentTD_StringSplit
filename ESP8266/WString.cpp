@@ -789,6 +789,16 @@ int String::td_split(String delimiter, String** str_array, uint8_t max_array) {
   return token_size;
 }
 
+bool String::isSetMember(String member, String delimiter){
+    String *str;
+    int count = td_split(delimiter, &str);
+    bool found = false;
+    for(int i =0; i < count ; ++i){
+        str[i].trim();
+        if( member == str[i]) { found = true; break;}
+    }
+    return found;
+}
 // /*********************************************/
 // /*  Parsing / Conversion                     */
 // /*********************************************/

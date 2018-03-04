@@ -241,7 +241,8 @@ class String {
 
         //TridentTD
         int td_split(String delimiter, String** str_array, uint8_t max_array=255);
-
+        bool isSetMember(String member, String delimiter=",");
+        
         // parsing/conversion
         long toInt(void) const;      //TridentTD version support True long
         float toFloat(void) const;
