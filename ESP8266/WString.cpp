@@ -764,7 +764,12 @@ void String::trim(void) {
 // /*  TridentTD's split : split by delimiters to String Array */
 // /************************************************************/
 int String::td_split(String delimiter, String** str_array, uint8_t max_array) {
-  if(!buffer || len == 0) return 0;
+  if(!buffer || len == 0) {
+    String *token = new String[1]; token[0] = "";
+    *str_array = token;
+    return 0;
+  }
+
   String input = String(buffer); 
   int token_size = 0;
 
@@ -774,6 +779,12 @@ int String::td_split(String delimiter, String** str_array, uint8_t max_array) {
     ++token_size;
   }
   
+  if(token_size == 0) {
+    String *token = new String[1]; token[0] = "";
+    *str_array = token;
+    return 0;
+  }
+
   String *token = new String[token_size];
   input = String(buffer); 
   token_size = 0;
