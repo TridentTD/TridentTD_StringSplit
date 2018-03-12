@@ -895,9 +895,9 @@ int String::td_split(String delimiter, String** str_array) {
   }
   
   if(token_size == 0) {
-    String *token = new String[1]; token[0] = "";
+    String *token = new String[1]; token[0] = input;
     *str_array = token;
-    return 0;
+    return 1;
   }
 
   String *token = new String[token_size];
