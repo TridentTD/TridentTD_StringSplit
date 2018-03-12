@@ -743,7 +743,7 @@ void String::trim(void)
 //     }
 //     return token_count;
 // }
-// TridentTD  split v.2
+// TridentTD  split v.2.1
 int String::td_split(String delimiter, String** str_array) {
   if(!buffer || len == 0) {
     String *token = new String[1]; token[0] = "";

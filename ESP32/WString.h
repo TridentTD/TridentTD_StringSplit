@@ -257,7 +257,7 @@ public:
     void trim(void);
 
     // TridentTD
-    int td_split(String delimiter, String** str_array);  //v.2
+    int td_split(String delimiter, String** str_array);  //v.2.1
     bool isSetMember(String member, String delimiter=",");
 
     // parsing/conversion

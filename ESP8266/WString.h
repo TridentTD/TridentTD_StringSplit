@@ -240,7 +240,7 @@ class String {
         void trim(void);
 
         //TridentTD
-        int td_split(String delimiter, String** str_array, uint8_t max_array=255);
+        int td_split(String delimiter, String** str_array); //v2.1
         bool isSetMember(String member, String delimiter=",");
         
         // parsing/conversion
