@@ -287,7 +287,7 @@ unsigned char String::concat(char c) {
 unsigned char String::concat(unsigned char num) {
     char buf[1 + 3 * sizeof(unsigned char)];
     itoa(num, buf, 10);
-    return concat(buf, strlen(buf));t
+    return concat(buf, strlen(buf));
 }
 
 unsigned char String::concat(int num) {
