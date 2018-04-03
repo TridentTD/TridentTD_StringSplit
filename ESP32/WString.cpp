@@ -878,10 +878,52 @@ void String::trim(void)
 //     return token_count;
 // }
 // TridentTD  split v.2.1
+// int String::td_split(String delimiter, String** str_array) {
+//   if(!buffer || len == 0) {
+//     String *token = new String[1]; token[0] = "";
+//     *str_array = token;
+//     return 0;
+//   }
+
+//   String input = String(buffer); 
+//   int token_size = 0;
+
+//   char *pChar = strtok( (char*)input.c_str(), (char*)delimiter.c_str());
+//   while ( pChar != NULL ) {
+//     pChar = strtok( NULL, (char*)delimiter.c_str());
+//     ++token_size;
+//   }
+  
+//   if(token_size == 0) {
+//     String *token = new String[1]; token[0] = input;
+//     *str_array = token;
+//     return 1;
+//   }
+
+//   String *token = new String[token_size];
+//   input = String(buffer); 
+//   token_size = 0;
+
+//   pChar = strtok( (char*) input.c_str(), (char*)delimiter.c_str());
+//   while ( pChar != NULL ) {
+//     token[token_size] = String(pChar);
+//     pChar = strtok( NULL, (char*)delimiter.c_str());
+//     ++token_size;
+//   }
+  
+//   *str_array = token;
+//   return token_size;
+// }
+// /************************************************************/
+// /*  TridentTD's split : split by delimiters to String Array */
+// /************************************************************/
+// Version 2.2
 int String::td_split(String delimiter, String** str_array) {
+  delete[] *str_array;
+
   if(!buffer || len == 0) {
-    String *token = new String[1]; token[0] = "";
-    *str_array = token;
+    *str_array = new String[1];
+    (*str_array)[0] = "";
     return 0;
   }
 
@@ -895,23 +937,20 @@ int String::td_split(String delimiter, String** str_array) {
   }
   
   if(token_size == 0) {
-    String *token = new String[1]; token[0] = input;
-    *str_array = token;
+    *str_array = new String[1]; (*str_array)[0] = input;
     return 1;
   }
 
-  String *token = new String[token_size];
+  *str_array = new String[token_size];
   input = String(buffer); 
   token_size = 0;
 
   pChar = strtok( (char*) input.c_str(), (char*)delimiter.c_str());
   while ( pChar != NULL ) {
-    token[token_size] = String(pChar);
+    (*str_array)[token_size] = String(pChar);
     pChar = strtok( NULL, (char*)delimiter.c_str());
     ++token_size;
   }
-  
-  *str_array = token;
   return token_size;
 }
 
