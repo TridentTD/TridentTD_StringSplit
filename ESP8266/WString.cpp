@@ -760,9 +760,9 @@ void String::trim(void) {
     buffer[len] = 0;
 }
 
-// /************************************************************/
-// /*  TridentTD's split : split by delimiters to String Array */
-// /************************************************************/
+/************************************************************/
+/*  TridentTD's split : split by delimiters to String Array */
+/************************************************************/
 // Version 2.2
 int String::td_split(String delimiter, String** str_array) {
   delete[] *str_array;
