@@ -1,11 +1,13 @@
 String myJson = "{ \"sensor\"  : { \"clock\"  : \"19.34.43\" , \"temp\" : 32,\"humid\" : 80  } }";
 
+String* sensors, *info;  // ตัวแปร String Array
+
 String clk; 
 int t, h;
 
 void setup() {
   Serial.begin(115200); Serial.println();
-  String* sensors, *info;                     // ตัวแปร String Array
+
   int count = myJson.td_split(",{}", &sensors);  // ตัด myJson ด้วย , หรือ { หรือ } ลงใน sensors Array
   for(int i = 0; i < count; ++i)
     if(2 == sensors[i].td_split(" :\"", &info))  // ตัด sensors[i] ด้วย space หรือ " ลงใน info Array
