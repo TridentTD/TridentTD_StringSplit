@@ -82,10 +82,14 @@ bool check =  test1.isSetMember( mySet ); // ทดสอบว่า test1 เ�
 ให้สำเนา WString.h และ WString.cpp นี้ไปแทนที่ ของเดิมที่อยู่ในโฟลเดอร์   
 C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino  
 
+![Image of_arduinosetup](arduino_setup.png)  
+
 ## วิธีการติดตั้งสำหรับ ESP8266 Platform  
 ในโฟลเดอร์ ESP8266  
 ให้สำเนา WString.h และ WString.cpp นี้ไปแทนที่ ของเดิมที่อยู่ในโฟลเดอร์   
 C:\Users\\[user_name]\\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\\[esp_version]\\cores\esp8266
+
+![Image of_esp8266setup](esp8266_setup.png)  
 
 ## วิธีการติดตั้งสำหรับ ESP32 Platform  
 ในโฟลเดอร์ ESP32  
