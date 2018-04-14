@@ -12,8 +12,6 @@ Split Arduino String to String Array
 คุณจะสามารถทำการตัดแบ่งคำ ได้ง่ายๆ ตามตัวอย่าง
 
 ```c
-String* str;     // สร้างตัวแปร String Array ที่จะใช้เก็บ String ที่ตัดแบ่งแล้ว
-
 void setup() {
   Serial.begin(115200); Serial.println();
   
@@ -22,7 +20,8 @@ void setup() {
   Serial.println("-----------------------------");
   Serial.println(myString);
   Serial.println("-----------------------------");
-
+  
+  String* str= NULL;     // สร้างตัวแปร String Array ที่จะใช้เก็บ String ที่ตัดแบ่งแล้ว
   // ตัดคำ myString ด้วย space หรือ . หรือ { หรือ } หรือ [ หรือ ] แล้วจัดเก็บใน str Array, 
   // จน.ที่ตัดได้จัดเก็บในตัวแปร count
   int count = myString.td_split( " .{}[]", &str ); 
