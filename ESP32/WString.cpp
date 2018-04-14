@@ -919,7 +919,10 @@ void String::trim(void)
 // /************************************************************/
 // Version 2.2
 int String::td_split(String delimiter, String** str_array) {
-  delete[] *str_array;
+  if(*str_array != NULL) {
+    delete[] *str_array;
+    *str_array = NULL;
+  }
 
   if(!buffer || len == 0) {
     *str_array = new String[1];

@@ -763,9 +763,12 @@ void String::trim(void) {
 /************************************************************/
 /*  TridentTD's split : split by delimiters to String Array */
 /************************************************************/
-// Version 2.2
+// Version 2.3
 int String::td_split(String delimiter, String** str_array) {
-  delete[] *str_array;
+  if(*str_array != NULL) {
+    delete[] *str_array;
+    *str_array = NULL;
+  }
 
   if(!buffer || len == 0) {
     *str_array = new String[1];
