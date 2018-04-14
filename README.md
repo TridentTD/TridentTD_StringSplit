@@ -48,7 +48,7 @@ void loop() {
 //
 ```
 
-![Image of code compare](code_compare.png)  
+![Image of code compare](code_tdsplit.png)  
 
 ![Image of result](result.png)
 
