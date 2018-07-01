@@ -104,4 +104,4 @@ C:\Users\\[user_name]\\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266
 .  
 .  
 **12/12/2560 BE (2017)**  
-**by Ven. Phaisarn (TridentTD)**  
+**by TridentTD**  
