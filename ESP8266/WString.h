@@ -28,7 +28,6 @@
 #include <ctype.h>
 #include <pgmspace.h>
 
-
 // An inherited class for holding the result of a concatenation.  These
 // result objects are assumed to be writable by subsequent concatenations.
 class StringSumHelper;
@@ -240,11 +239,11 @@ class String {
         void trim(void);
 
         //TridentTD
-        int td_split(String delimiter, String** str_array); //v2.1
+        int td_split(String delimiter, String** str_array); //v2.3
         bool isSetMember(String member, String delimiter=",");
-        
+
         // parsing/conversion
-        long toInt(void) const;      //TridentTD version support True long
+        long toInt(void) const;      //TridentTD fix support True long
         float toFloat(void) const;
         double toDouble(void) const; //TridentTD
 
